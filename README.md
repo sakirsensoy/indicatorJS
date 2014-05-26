@@ -37,7 +37,7 @@ $.ajax({
 	  indicator.hide('#data');
 	  
 	  // Result
-          $('#data').html(result);
+	  $('#data').html(result);
 	}
 });
 ```
