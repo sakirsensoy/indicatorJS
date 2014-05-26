@@ -1,7 +1,7 @@
 indicatorJS
 ===========
 
-The library is a loading indicator.
+The library is a javascript loading indicator.
 
 ### Contribute ###
 
