@@ -52,7 +52,7 @@ var indicator = function() {
 		},
 
 		/**
-		 * Destroy loader indicator
+		 * Destroy loading indicator
 		 * 
 		 * @param  string elementId
 		 * @return void
