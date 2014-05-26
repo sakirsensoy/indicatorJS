@@ -9,8 +9,9 @@ I'm waiting your pull requests :)
 
 ### Usage ###
 
-First include script
+First include script/css
 ```html
+<link rel="stylesheet" type="text/css" href="indicator.css" />
 <script src="indicator.js"></script>
 ```
 
