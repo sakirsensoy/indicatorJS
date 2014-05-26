@@ -1,0 +1,18 @@
+/**
+ * Loading indicator
+ *
+ * @author Şakir Şensoy | sakirsensoy@gmail.com
+ */
+.indicator {
+
+  width: 100%;
+  min-height: 15px;
+  position: absolute;
+  top: 0; left: 0;
+  opacity: 0.9;
+}
+
+.indicator-loader {
+
+  background: #fff url(indicator.gif) no-repeat center center;
+}
