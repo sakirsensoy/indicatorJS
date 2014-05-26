@@ -9,8 +9,7 @@
 var indicator = function() {
 
 	/**
-	 * Parametre olarak verilen element adını nokta ve diyez belirteçlerinden
-	 * arındırır.
+	 * Remove hash and dot, from element name.
 	 * 
 	 * @param  string elementId
 	 * @return string
@@ -25,9 +24,7 @@ var indicator = function() {
 	return {
 
 		/**
-		 * Parametre olarak verilen dom elementId ile aynı ölçülerde
-		 * temp bir div katmanı oluşturur ve bu katman içinde load indicator'ı
-		 * görüntüler.
+		 * Create temporarily layer for indicator
 		 *  
 		 * @param  string elementId
 		 * @return void
@@ -37,11 +34,11 @@ var indicator = function() {
 			//dom
 			el = $(elementId);
 
-			//geçici olarak relative yap dış katmanı
+			//temporarily parent layer position to relative
 			elementExPosition = el.css('position');
 			el.css('position', 'relative');
 
-			//geçici indicator katmanı
+			//temporarily indicator layer
 			tempIndicator = $('<div />')
 			.attr('id', elementNameFixer(elementId) + '-indicator')
 			.css({
@@ -50,13 +47,12 @@ var indicator = function() {
 			})
 			.addClass('indicator indicator-loader');
 
-			//indicator'ı element içine yerleştir
+			//indicator append to element
 			el.append(tempIndicator);
 		},
 
 		/**
-		 * Parametre olarak verilen elementId için daha önce
-		 * açılmış olan bir load indicator'ı yok eder.
+		 * Destroy loader indicator
 		 * 
 		 * @param  string elementId
 		 * @return void
@@ -66,12 +62,12 @@ var indicator = function() {
 			//dom
 			el = $(elementId);
 
-			//dış katmanın position'ı eski haline getir
+			//parent layer position restore
 			el.css('position', elementExPosition);
 
 			elementExPosition = null;
 
-			//indicator'ı bul ve yok et
+			//find indicator and destroy
 			el.find('#' + elementNameFixer(elementId) + '-indicator').remove();
 		}
 	};
