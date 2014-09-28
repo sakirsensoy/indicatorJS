@@ -5,14 +5,20 @@
  */
 .indicator {
 
-  width: 100%;
   min-height: 15px;
   position: absolute;
   top: 0; left: 0;
   opacity: 0.9;
+  background-color: #fff;
 }
 
-.indicator-loader {
+.indicator .loading-pane .spinner {
 
-  background: #fff url(indicator.gif) no-repeat center center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.indicator-fullscreen-loader {
+
+    position: fixed;
 }
