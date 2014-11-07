@@ -1,4 +1,4 @@
-indicatorJS
+jquery-indicator
 ===========
 
 The library is a javascript loading indicator.
@@ -33,10 +33,10 @@ $.ajax({
 	type: "POST",
 	data: "key=value",
 	success: function(result) {
-	
+
 	  // Hide indicator
 	  indicator.hide('#data');
-	  
+
 	  // Result
 	  $('#data').html(result);
 	}
