@@ -9,6 +9,7 @@
   min-height: 15px;
   position: absolute;
   top: 0; left: 0;
+  z-index: 99999;
   opacity: 0.9;
   background-color: #fff;
 }
