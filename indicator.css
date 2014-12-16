@@ -12,6 +12,7 @@
   z-index: 99999;
   opacity: 0.9;
   background-color: #fff;
+  text-align: center;
 }
 
 .indicator-fullscreen-loader {
