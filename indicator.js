@@ -92,29 +92,32 @@ var indicator = function() {
 		 */
 		showFS: function() {
 
-			//temporarily indicator layer
-			tempIndicator = $('<div />')
-			.attr('id', 'fullscreen-indicator')
-			.css({
-				width: $(window).width(),
-				height: $(window).height()
-			})
-			.addClass('indicator indicator-loader indicator-fullscreen-loader')
-			.html('<div class="loading-pane">\
-			        <div class="loading-message">\
-			            <div class="spinner">\
-			                <div class="double-bounce1"></div>\
-			                <div class="double-bounce2"></div>\
-			            </div>\
-			        </div>\
-			    </div>\
-		    ');
+			if ($('#fullscreen-indicator').length < 1) {
 
-			//indicator append to body
-			$('body').append(tempIndicator);
+				//temporarily indicator layer
+				tempIndicator = $('<div />')
+				.attr('id', 'fullscreen-indicator')
+				.css({
+					width: $(window).width(),
+					height: $(window).height()
+				})
+				.addClass('indicator indicator-loader indicator-fullscreen-loader')
+				.html('<div class="loading-pane">\
+				        <div class="loading-message">\
+				            <div class="spinner">\
+				                <div class="double-bounce1"></div>\
+				                <div class="double-bounce2"></div>\
+				            </div>\
+				        </div>\
+				    </div>\
+			    ');
 
-			// spinner margin-top
-			$('#fullscreen-indicator').find('.spinner').css('margin-top', ($(window).outerHeight() - 40) / 2);
+				//indicator append to body
+				$('body').append(tempIndicator);
+
+				// spinner margin-top
+				$('#fullscreen-indicator').find('.spinner').css('margin-top', ($(window).outerHeight() - 40) / 2);
+			}
 		},
 
 		/**
