@@ -1,7 +1,8 @@
 /**
- * JS Loading Indicator
+ * jquery.indicator
  *
- * @author  Şakir ŞENSOY | sakirsensoy@gmail.com
+ * @version 1.0.7
+ * @author Şakir ŞENSOY | sakirsensoy@gmail.com
  * @depend jQuery
  * @return object
  */
