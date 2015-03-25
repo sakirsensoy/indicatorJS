@@ -10,7 +10,7 @@
 var indicator = function() {
 
 	/**
-	 * Remove hash and dot, from element name.
+	 * Remove hash and dot from element name.
 	 *
 	 * @param  string elementId
 	 * @return string
@@ -21,6 +21,7 @@ var indicator = function() {
 	};
 
 	var elementExPosition = null;
+	var parentElementPosition = null;
 
 	return {
 
@@ -32,14 +33,19 @@ var indicator = function() {
 		 */
 		show: function(elementId) {
 
-			//dom
+			// dom
 			el = $(elementId);
 
-			//temporarily parent layer position to relative
-			elementExPosition = el.css('position');
-			el.css('position', 'relative');
+			// element position
+			elementExPosition     = el.css('position');
+			parentElementPosition = el.parent().css('position');
 
-			//temporarily indicator layer
+			if (! (elementExPosition == 'absolute' && parentElementPosition == 'relative')) {
+
+				el.css('position', 'relative');
+			}
+
+			// temporarily indicator layer
 			tempIndicator = $('<div />')
 			.attr('id', elementNameFixer(elementId) + '-indicator')
 			.css({
@@ -57,13 +63,11 @@ var indicator = function() {
 			    </div>\
 		    ');
 
-			//indicator append to element
+			// indicator append to element
 			el.append(tempIndicator);
 
-			// spinner margin-top
+			//  spinner margin-top
 			$('#' + elementNameFixer(elementId) + '-indicator').find('.spinner').css('margin-top', (el.outerHeight() - 40) / 2);
-
-			// console.log('#' + $(elementNameFixer(elementId) + '-indicator').find('.spinner'));
 		},
 
 		/**
@@ -74,15 +78,16 @@ var indicator = function() {
 		 */
 		hide: function(elementId) {
 
-			//dom
+			// dom
 			el = $(elementId);
 
-			//parent layer position restore
+			// parent layer position restore
 			el.css('position', elementExPosition);
 
-			elementExPosition = null;
+			elementExPosition     = null;
+			parentElementPosition = null;
 
-			//find indicator and destroy
+			// find indicator and destroy
 			el.find('#' + elementNameFixer(elementId) + '-indicator').remove();
 		},
 
@@ -95,7 +100,7 @@ var indicator = function() {
 
 			if ($('#fullscreen-indicator').length < 1) {
 
-				//temporarily indicator layer
+				// temporarily indicator layer
 				tempIndicator = $('<div />')
 				.attr('id', 'fullscreen-indicator')
 				.css({
@@ -113,7 +118,7 @@ var indicator = function() {
 				    </div>\
 			    ');
 
-				//indicator append to body
+				// indicator append to body
 				$('body').append(tempIndicator);
 
 				// spinner margin-top
@@ -128,7 +133,7 @@ var indicator = function() {
 		 */
 		hideFS: function() {
 
-			//find indicator and destroy
+			// find indicator and destroy
 			$('#fullscreen-indicator').remove();
 		}
 	};
